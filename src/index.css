@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-display: "Outfit", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+h1, h2, h3, .font-display {
+  font-family: var(--font-display);
+}
+
+/* Custom Leaflet Map styling */
+.leaflet-container {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 480px !important;
+  font-family: var(--font-sans);
+  z-index: 10;
+  background-color: #f1f5f9;
+}
+
+.custom-map-pin {
+  background: none;
+  border: none;
+}
+

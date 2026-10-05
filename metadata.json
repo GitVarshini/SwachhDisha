@@ -1,0 +1,6 @@
+{
+  "name": "SwachhDisha — Smart Waste Issue Reporting & Monitoring System",
+  "description": "Civic platform for citizens to report waste issues and administrators to monitor, verify, and resolve reports with location-based mapping and analytics.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
