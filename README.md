@@ -122,12 +122,14 @@ This allows authorities to track the complete lifecycle of a citizen complaint.
 
 ### Development & Deployment
 
-* Git
-* GitHub
-* AWS EC2
-* Ubuntu Server
-* Nginx
-* PM2
+- Git
+- GitHub
+- AWS EC2
+- Ubuntu Server 24.04 LTS
+- Nginx
+- PM2
+- DuckDNS
+- Let's Encrypt SSL
 
 ---
 
@@ -557,30 +559,45 @@ SwachhDisha implements several basic security mechanisms:
 
 ---
 
-## Deployment Architecture
+## Production Deployment
 
-The production deployment is designed around an AWS Ubuntu server.
+SwachhDisha is deployed on an AWS EC2 Ubuntu server.
+
+### Deployment Details
+
+- **Cloud Platform:** AWS EC2
+- **Operating System:** Ubuntu 24.04 LTS
+- **Web Server:** Nginx
+- **Backend Process Manager:** PM2
+- **Database:** MySQL
+- **Domain:** https://swachhdisha.duckdns.org
+- **SSL:** Let's Encrypt
+- **DNS Provider:** DuckDNS
+
+### Production Architecture
 
 ```text
-                   Internet
-                       |
-                       v
-                ┌────────────┐
-                │   Nginx    │
-                │   :80/:443 │
-                └─────┬──────┘
-                      │
-          ┌───────────┴───────────┐
-          │                       │
-          v                       v
-   React Static Files       Node.js/Express
-                               :5000
-                                  |
-                                  v
-                               MySQL
-```
-
-The database and backend do not need to be publicly exposed.
+                         Internet
+                            |
+                            v
+                swachhdisha.duckdns.org
+                            |
+                         HTTPS
+                            |
+                            v
+                    ┌──────────────┐
+                    │    Nginx     │
+                    │   :80/:443   │
+                    └──────┬───────┘
+                           |
+                 ┌─────────┴─────────┐
+                 |                   |
+                 v                   v
+          React Frontend       Node.js/Express
+             dist/                via PM2
+                                     |
+                                     v
+                                  MySQL
 
 ---
 
@@ -680,24 +697,25 @@ Possible future improvements include:
 
 ## Project Status
 
-**Current status: Functional full-stack application**
+**Current status: Fully deployed and functional**
 
 The application currently includes:
 
-* React frontend
-* Node.js/Express backend
-* MySQL database
-* JWT authentication
-* Citizen reporting
-* Administrative workflow
-* Report timelines
-* Interactive maps
-* Analytics
-* GitHub version control
-* AWS deployment preparation
+- React frontend
+- Node.js/Express backend
+- MySQL database
+- JWT authentication
+- Citizen reporting
+- Administrative workflow
+- Report timelines
+- Interactive maps
+- Analytics
+- GitHub version control
+- AWS EC2 deployment
+- Nginx reverse proxy
+- PM2 backend process management
+- HTTPS with Let's Encrypt
+- DuckDNS domain
 
 ---
 
-## License
-
-This project is developed as an academic/educational project.
