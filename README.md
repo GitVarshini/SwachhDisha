@@ -8,6 +8,13 @@ The system provides waste issue reporting, map-based visualization, report track
 
 ---
 
+## Live Demo
+
+**Deployed Website:** https://swachhdisha.duckdns.org
+
+The application is deployed on AWS EC2 and accessible through HTTPS.
+
+
 ## Problem Statement
 
 Waste accumulation and illegal dumping can create health, environmental, and sanitation problems. In many communities, citizens have limited visibility into whether reported waste issues are being addressed.
